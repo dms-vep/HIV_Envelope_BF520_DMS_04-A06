@@ -1,0 +1,10 @@
+.*
+_*
+*.out
+
+!.github
+!.gitignore
+!.gitattributes
+!.gitmodules
+
+SARS-CoV-2_XBB.1.5_RBD_DMS
