@@ -1,33 +1,33 @@
 sequential_site,sequential_wt,reference_site,reference_wt,region
-1,M,1,M,signal peptide
-2,R,2,R,signal peptide
-3,V,3,V,signal peptide
-4,K,4,K,signal peptide
-5,G,4a,-,signal peptide
-6,I,4b,-,signal peptide
-7,Q,4c,-,signal peptide
-8,M,5,E,signal peptide
-9,N,6,K,signal peptide
-10,S,7,Y,signal peptide
-11,Q,8,Q,signal peptide
-12,H,9,H,signal peptide
-13,L,10,L,signal peptide
-14,L,15,W,signal peptide
-15,R,16,R,signal peptide
-16,W,17,W,signal peptide
-17,G,18,G,signal peptide
-18,I,19,T,signal peptide
-19,M,20,M,signal peptide
-20,I,21,L,signal peptide
-21,L,22,L,signal peptide
-22,G,23,G,signal peptide
-23,M,24,M,signal peptide
-24,I,25,L,signal peptide
-25,M,26,M,signal peptide
-26,I,27,I,signal peptide
-27,C,28,C,signal peptide
-28,S,29,S,signal peptide
-29,V,30,A,signal peptide
+1,M,1,M,gp120
+2,R,2,R,gp120
+3,V,3,V,gp120
+4,K,4,K,gp120
+5,G,4a,-,gp120
+6,I,4b,-,gp120
+7,Q,4c,-,gp120
+8,M,5,E,gp120
+9,N,6,K,gp120
+10,S,7,Y,gp120
+11,Q,8,Q,gp120
+12,H,9,H,gp120
+13,L,10,L,gp120
+14,L,15,W,gp120
+15,R,16,R,gp120
+16,W,17,W,gp120
+17,G,18,G,gp120
+18,I,19,T,gp120
+19,M,20,M,gp120
+20,I,21,L,gp120
+21,L,22,L,gp120
+22,G,23,G,gp120
+23,M,24,M,gp120
+24,I,25,L,gp120
+25,M,26,M,gp120
+26,I,27,I,gp120
+27,C,28,C,gp120
+28,S,29,S,gp120
+29,V,30,A,gp120
 30,A,31,T,gp120
 31,G,32,E,gp120
 32,N,33,K,gp120
@@ -128,67 +128,67 @@ sequential_site,sequential_wt,reference_site,reference_wt,region
 127,T,128,S,gp120
 128,L,129,L,gp120
 129,D,130,K,gp120
-130,C,131,C,V1 loop
-131,H,132,T,V1 loop
-132,N,133,D,V1 loop
-133,V,134,L,V1 loop
-134,T,135,K,V1 loop
-135,Y,136,N,V1 loop
-136,N,137,D,V1 loop
-137,I,138,T,V1 loop
-138,T,139,N,V1 loop
-139,S,140,T,V1 loop
-140,D,141,N,V1 loop
-141,M,142,S,V1 loop
-142,K,151,K,V1 loop
-143,E,152,G,V1 loop
-144,E,153,E,V1 loop
-145,I,154,I,V1 loop
-146,T,155,K,V1 loop
-147,N,156,N,V1 loop
-148,C,157,C,V2 loop
-149,S,158,S,V2 loop
-150,Y,159,F,V2 loop
-151,N,160,N,V2 loop
-152,V,161,I,V2 loop
-153,T,162,S,V2 loop
-154,T,163,T,V2 loop
-155,V,164,S,V2 loop
-156,I,165,I,V2 loop
-157,R,166,R,V2 loop
-158,D,167,G,V2 loop
-159,K,168,K,V2 loop
-160,K,169,V,V2 loop
-161,Q,170,Q,V2 loop
-162,K,171,K,V2 loop
-163,V,172,E,V2 loop
-164,S,173,Y,V2 loop
-165,S,174,A,V2 loop
-166,L,175,F,V2 loop
-167,F,176,F,V2 loop
-168,Y,177,Y,V2 loop
-169,K,178,K,V2 loop
-170,L,179,L,V2 loop
-171,D,180,D,V2 loop
-172,V,181,I,V2 loop
-173,V,182,I,V2 loop
-174,Q,183,P,V2 loop
-175,I,184,I,V2 loop
-176,G,184a,-,V2 loop
-177,G,184b,-,V2 loop
-178,N,185,D,V2 loop
-179,N,186,N,V2 loop
-180,R,187,D,V2 loop
-181,T,188,T,V2 loop
-182,N,189,T,V2 loop
-183,S,190,S,V2 loop
-184,Q,190a,-,V2 loop
-185,Y,191,Y,V2 loop
-186,R,192,K,V2 loop
-187,L,193,L,V2 loop
-188,I,194,T,V2 loop
-189,N,195,S,V2 loop
-190,C,196,C,V2 loop
+130,C,131,C,V1/V2 loops
+131,H,132,T,V1/V2 loops
+132,N,133,D,V1/V2 loops
+133,V,134,L,V1/V2 loops
+134,T,135,K,V1/V2 loops
+135,Y,136,N,V1/V2 loops
+136,N,137,D,V1/V2 loops
+137,I,138,T,V1/V2 loops
+138,T,139,N,V1/V2 loops
+139,S,140,T,V1/V2 loops
+140,D,141,N,V1/V2 loops
+141,M,142,S,V1/V2 loops
+142,K,151,K,V1/V2 loops
+143,E,152,G,V1/V2 loops
+144,E,153,E,V1/V2 loops
+145,I,154,I,V1/V2 loops
+146,T,155,K,V1/V2 loops
+147,N,156,N,V1/V2 loops
+148,C,157,C,V1/V2 loops
+149,S,158,S,V1/V2 loops
+150,Y,159,F,V1/V2 loops
+151,N,160,N,V1/V2 loops
+152,V,161,I,V1/V2 loops
+153,T,162,S,V1/V2 loops
+154,T,163,T,V1/V2 loops
+155,V,164,S,V1/V2 loops
+156,I,165,I,V1/V2 loops
+157,R,166,R,V1/V2 loops
+158,D,167,G,V1/V2 loops
+159,K,168,K,V1/V2 loops
+160,K,169,V,V1/V2 loops
+161,Q,170,Q,V1/V2 loops
+162,K,171,K,V1/V2 loops
+163,V,172,E,V1/V2 loops
+164,S,173,Y,V1/V2 loops
+165,S,174,A,V1/V2 loops
+166,L,175,F,V1/V2 loops
+167,F,176,F,V1/V2 loops
+168,Y,177,Y,V1/V2 loops
+169,K,178,K,V1/V2 loops
+170,L,179,L,V1/V2 loops
+171,D,180,D,V1/V2 loops
+172,V,181,I,V1/V2 loops
+173,V,182,I,V1/V2 loops
+174,Q,183,P,V1/V2 loops
+175,I,184,I,V1/V2 loops
+176,G,184a,-,V1/V2 loops
+177,G,184b,-,V1/V2 loops
+178,N,185,D,V1/V2 loops
+179,N,186,N,V1/V2 loops
+180,R,187,D,V1/V2 loops
+181,T,188,T,V1/V2 loops
+182,N,189,T,V1/V2 loops
+183,S,190,S,V1/V2 loops
+184,Q,190a,-,V1/V2 loops
+185,Y,191,Y,V1/V2 loops
+186,R,192,K,V1/V2 loops
+187,L,193,L,V1/V2 loops
+188,I,194,T,V1/V2 loops
+189,N,195,S,V1/V2 loops
+190,C,196,C,V1/V2 loops
 191,N,197,N,gp120
 192,T,198,T,gp120
 193,S,199,S,gp120
@@ -438,27 +438,27 @@ sequential_site,sequential_wt,reference_site,reference_wt,region
 437,N,448,N,gp120
 438,I,449,I,gp120
 439,T,450,T,gp120
-440,G,451,G,beta23
-441,L,452,L,beta23
-442,I,453,L,beta23
-443,L,454,L,beta23
-444,T,455,T,beta23
-445,R,456,R,beta23
-446,D,457,D,beta23
-447,G,458,G,beta23
+440,G,451,G,gp120
+441,L,452,L,gp120
+442,I,453,L,gp120
+443,L,454,L,gp120
+444,T,455,T,gp120
+445,R,456,R,gp120
+446,D,457,D,gp120
+447,G,458,G,gp120
 448,G,459,G,gp120
 449,S,460,N,V5 loop
 450,N,461,S,V5 loop
 451,K,462,N,V5 loop
 452,N,463,N,V5 loop
 453,T,464,E,V5 loop
-454,S,465,S,V5 loop/beta24
-455,E,466,E,V5 loop/beta24
-456,T,467,I,V5 loop/beta24
-457,F,468,F,V5 loop/beta24
-458,R,469,R,V5 loop/beta24
-459,P,470,P,beta24
-460,G,471,G,beta24
+454,S,465,S,V5 loop
+455,E,466,E,V5 loop
+456,T,467,I,V5 loop
+457,F,468,F,V5 loop
+458,R,469,R,V5 loop
+459,P,470,P,gp120
+460,G,471,G,gp120
 461,G,472,G,gp120
 462,G,473,G,gp120
 463,D,474,D,gp120
@@ -495,26 +495,26 @@ sequential_site,sequential_wt,reference_site,reference_wt,region
 494,V,505,V,gp120
 495,V,506,V,gp120
 496,E,507,Q,gp120
-497,R,508,R,cleavage site
-498,E,509,E,cleavage site
-499,K,510,K,cleavage site
-500,R,511,R,cleavage site
-501,A,512,A,fusion peptide
-502,V,513,V,fusion peptide
-503,G,514,G,fusion peptide
-504,I,515,I,fusion peptide
-505,G,516,G,fusion peptide
-506,A,517,A,fusion peptide
-507,V,518,L,fusion peptide
-508,F,519,F,fusion peptide
-509,I,520,L,fusion peptide
-510,G,521,G,fusion peptide
-511,F,522,F,fusion peptide
-512,L,523,L,fusion peptide
-513,G,524,G,fusion peptide
-514,A,525,A,fusion peptide
-515,A,526,A,fusion peptide
-516,G,527,G,fusion peptide
+497,R,508,R,gp120
+498,E,509,E,gp120
+499,K,510,K,gp120
+500,R,511,R,gp120
+501,A,512,A,gp41
+502,V,513,V,gp41
+503,G,514,G,gp41
+504,I,515,I,gp41
+505,G,516,G,gp41
+506,A,517,A,gp41
+507,V,518,L,gp41
+508,F,519,F,gp41
+509,I,520,L,gp41
+510,G,521,G,gp41
+511,F,522,F,gp41
+512,L,523,L,gp41
+513,G,524,G,gp41
+514,A,525,A,gp41
+515,A,526,A,gp41
+516,G,527,G,gp41
 517,S,528,S,gp41
 518,T,529,T,gp41
 519,M,530,M,gp41
@@ -522,67 +522,67 @@ sequential_site,sequential_wt,reference_site,reference_wt,region
 521,A,532,A,gp41
 522,A,533,A,gp41
 523,S,534,S,gp41
-524,V,535,M,N-helix
-525,T,536,T,N-helix
-526,L,537,L,N-helix
-527,T,538,T,N-helix
-528,V,539,V,N-helix
-529,Q,540,Q,N-helix
-530,A,541,A,N-helix
-531,R,542,R,N-helix
-532,Q,543,Q,N-helix
-533,L,544,L,N-helix
-534,L,545,L,N-helix
-535,S,546,S,N-helix
-536,G,547,G,N-helix
-537,I,548,I,N-helix
-538,V,549,V,N-helix
-539,Q,550,Q,N-helix
-540,Q,551,Q,N-helix
-541,Q,552,Q,N-helix
-542,S,553,N,N-helix
-543,N,554,N,N-helix
-544,L,555,L,N-helix
-545,L,556,L,N-helix
-546,R,557,R,N-helix
-547,A,558,A,N-helix
-548,I,559,I,N-helix
-549,E,560,E,N-helix
-550,A,561,A,N-helix
-551,Q,562,Q,N-helix
-552,Q,563,Q,N-helix
-553,H,564,H,N-helix
-554,L,565,L,N-helix
-555,L,566,L,N-helix
-556,K,567,Q,N-helix
-557,L,568,L,N-helix
-558,T,569,T,N-helix
-559,V,570,V,N-helix
-560,W,571,W,N-helix
-561,G,572,G,N-helix
-562,I,573,I,N-helix
-563,K,574,K,N-helix
-564,Q,575,Q,N-helix
-565,L,576,L,N-helix
-566,Q,577,Q,N-helix
-567,A,578,A,N-helix
-568,R,579,R,N-helix
-569,V,580,I,N-helix
-570,L,581,L,N-helix
-571,A,582,A,N-helix
-572,V,583,V,N-helix
-573,E,584,E,N-helix
-574,R,585,R,N-helix
-575,Y,586,Y,N-helix
-576,L,587,L,N-helix
-577,K,588,K,N-helix
-578,D,589,D,N-helix
-579,Q,590,Q,N-helix
-580,Q,591,Q,N-helix
-581,L,592,L,N-helix
-582,L,593,L,N-helix
-583,G,594,G,N-helix
-584,I,595,I,N-helix
+524,V,535,M,gp41
+525,T,536,T,gp41
+526,L,537,L,gp41
+527,T,538,T,gp41
+528,V,539,V,gp41
+529,Q,540,Q,gp41
+530,A,541,A,gp41
+531,R,542,R,gp41
+532,Q,543,Q,gp41
+533,L,544,L,gp41
+534,L,545,L,gp41
+535,S,546,S,gp41
+536,G,547,G,gp41
+537,I,548,I,gp41
+538,V,549,V,gp41
+539,Q,550,Q,gp41
+540,Q,551,Q,gp41
+541,Q,552,Q,gp41
+542,S,553,N,gp41
+543,N,554,N,gp41
+544,L,555,L,gp41
+545,L,556,L,gp41
+546,R,557,R,gp41
+547,A,558,A,gp41
+548,I,559,I,gp41
+549,E,560,E,gp41
+550,A,561,A,gp41
+551,Q,562,Q,gp41
+552,Q,563,Q,gp41
+553,H,564,H,gp41
+554,L,565,L,gp41
+555,L,566,L,gp41
+556,K,567,Q,gp41
+557,L,568,L,gp41
+558,T,569,T,gp41
+559,V,570,V,gp41
+560,W,571,W,gp41
+561,G,572,G,gp41
+562,I,573,I,gp41
+563,K,574,K,gp41
+564,Q,575,Q,gp41
+565,L,576,L,gp41
+566,Q,577,Q,gp41
+567,A,578,A,gp41
+568,R,579,R,gp41
+569,V,580,I,gp41
+570,L,581,L,gp41
+571,A,582,A,gp41
+572,V,583,V,gp41
+573,E,584,E,gp41
+574,R,585,R,gp41
+575,Y,586,Y,gp41
+576,L,587,L,gp41
+577,K,588,K,gp41
+578,D,589,D,gp41
+579,Q,590,Q,gp41
+580,Q,591,Q,gp41
+581,L,592,L,gp41
+582,L,593,L,gp41
+583,G,594,G,gp41
+584,I,595,I,gp41
 585,W,596,W,gp41
 586,G,597,G,gp41
 587,C,598,C,gp41
@@ -605,54 +605,54 @@ sequential_site,sequential_wt,reference_site,reference_wt,region
 604,S,615,S,gp41
 605,N,616,N,gp41
 606,K,617,K,gp41
-607,S,618,S,C-helix
-608,Q,619,L,C-helix
-609,D,620,E,C-helix
-610,E,621,Q,C-helix
-611,I,622,I,C-helix
-612,W,623,W,C-helix
-613,G,624,N,C-helix
-614,N,625,H,C-helix
-615,M,626,T,C-helix
-616,T,627,T,C-helix
-617,W,628,W,C-helix
-618,L,629,M,C-helix
-619,Q,630,E,C-helix
-620,W,631,W,C-helix
-621,D,632,D,C-helix
-622,K,633,R,C-helix
-623,E,634,E,C-helix
-624,V,635,I,C-helix
-625,S,636,N,C-helix
-626,N,637,N,C-helix
-627,Y,638,Y,C-helix
-628,T,639,T,C-helix
-629,Q,640,S,C-helix
-630,I,641,L,C-helix
-631,I,642,I,C-helix
-632,Y,643,H,C-helix
-633,T,644,S,C-helix
-634,L,645,L,C-helix
-635,I,646,I,C-helix
-636,E,647,E,C-helix
-637,E,648,E,C-helix
-638,S,649,S,C-helix
-639,Q,650,Q,C-helix
-640,N,651,N,C-helix
-641,Q,652,Q,C-helix
-642,Q,653,Q,C-helix
-643,E,654,E,C-helix
-644,K,655,K,C-helix
-645,N,656,N,C-helix
-646,E,657,E,C-helix
-647,Q,658,Q,C-helix
-648,D,659,E,C-helix
-649,L,660,L,C-helix
-650,L,661,L,C-helix
-651,A,662,E,C-helix
-652,L,663,L,C-helix
-653,D,664,D,C-helix
-654,K,665,K,C-helix
+607,S,618,S,gp41
+608,Q,619,L,gp41
+609,D,620,E,gp41
+610,E,621,Q,gp41
+611,I,622,I,gp41
+612,W,623,W,gp41
+613,G,624,N,gp41
+614,N,625,H,gp41
+615,M,626,T,gp41
+616,T,627,T,gp41
+617,W,628,W,gp41
+618,L,629,M,gp41
+619,Q,630,E,gp41
+620,W,631,W,gp41
+621,D,632,D,gp41
+622,K,633,R,gp41
+623,E,634,E,gp41
+624,V,635,I,gp41
+625,S,636,N,gp41
+626,N,637,N,gp41
+627,Y,638,Y,gp41
+628,T,639,T,gp41
+629,Q,640,S,gp41
+630,I,641,L,gp41
+631,I,642,I,gp41
+632,Y,643,H,gp41
+633,T,644,S,gp41
+634,L,645,L,gp41
+635,I,646,I,gp41
+636,E,647,E,gp41
+637,E,648,E,gp41
+638,S,649,S,gp41
+639,Q,650,Q,gp41
+640,N,651,N,gp41
+641,Q,652,Q,gp41
+642,Q,653,Q,gp41
+643,E,654,E,gp41
+644,K,655,K,gp41
+645,N,656,N,gp41
+646,E,657,E,gp41
+647,Q,658,Q,gp41
+648,D,659,E,gp41
+649,L,660,L,gp41
+650,L,661,L,gp41
+651,A,662,E,gp41
+652,L,663,L,gp41
+653,D,664,D,gp41
+654,K,665,K,gp41
 655,W,666,W,gp41
 656,A,667,A,gp41
 657,S,668,S,gp41
@@ -672,26 +672,26 @@ sequential_site,sequential_wt,reference_site,reference_wt,region
 671,I,682,I,gp41
 672,K,683,K,gp41
 673,I,684,L,gp41
-674,F,685,F,transmembrane domain
-675,I,686,I,transmembrane domain
-676,I,687,M,transmembrane domain
-677,I,688,I,transmembrane domain
-678,V,689,V,transmembrane domain
-679,G,690,G,transmembrane domain
-680,G,691,G,transmembrane domain
-681,L,692,L,transmembrane domain
-682,I,693,V,transmembrane domain
-683,G,694,G,transmembrane domain
-684,L,695,L,transmembrane domain
-685,R,696,R,transmembrane domain
-686,I,697,I,transmembrane domain
-687,V,698,V,transmembrane domain
-688,F,699,F,transmembrane domain
-689,A,700,A,transmembrane domain
-690,V,701,V,transmembrane domain
-691,L,702,L,transmembrane domain
-692,S,703,S,transmembrane domain
-693,V,704,I,transmembrane domain
+674,F,685,F,gp41
+675,I,686,I,gp41
+676,I,687,M,gp41
+677,I,688,I,gp41
+678,V,689,V,gp41
+679,G,690,G,gp41
+680,G,691,G,gp41
+681,L,692,L,gp41
+682,I,693,V,gp41
+683,G,694,G,gp41
+684,L,695,L,gp41
+685,R,696,R,gp41
+686,I,697,I,gp41
+687,V,698,V,gp41
+688,F,699,F,gp41
+689,A,700,A,gp41
+690,V,701,V,gp41
+691,L,702,L,gp41
+692,S,703,S,gp41
+693,V,704,I,gp41
 694,I,705,V,Cytoplasmic tail
 695,N,706,N,Cytoplasmic tail
 696,R,707,R,Cytoplasmic tail

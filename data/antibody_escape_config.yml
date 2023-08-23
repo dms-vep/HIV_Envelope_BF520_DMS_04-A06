@@ -31,7 +31,7 @@ prob_escape_filters_default: &prob_escape_filters_default
   # Only retain for fitting variants with at least this many counts and this fraction
   # of total counts in the no-antibody sample **OR** the indicated counts and fraction
   # of total counts in the antibody sample.
-  min_no_antibody_count: 100  # make bigger for real experiments, say 20
+  min_no_antibody_count: 50  # make bigger for real experiments, say 20
   min_no_antibody_frac: 0.00001  # make smaller for large libraries, say ~0.1 / (library size)
   min_antibody_count: 1000  # make bigger for real experiments, say 100
   min_antibody_frac: 0.0001  # make smaller for large libraries, say ~10 / (library size)
@@ -223,7 +223,7 @@ antibody_selections:
         use_in_fit: true
       A-230223-rescue_5-04-A06-10.0-1:
         concentration: 10.0
-        use_in_fit: false
+        use_in_fit: true
       A-230223-rescue_5-04-A06-20.0-1:
         concentration: 20.0
         use_in_fit: false
