@@ -1,12 +1,58 @@
-# Configurations for determining effects of mutations on antibody/sera escape,
-# or escape from neutralization by soluble receptor (which can be used to determine
-# receptor affinity).
+# Configurations for determining effects of mutations on assays such as antibody
+# escape, receptor affinity from soluble receptor neutralization, etc.
+# Note that in the configuration for individual selections, "antibody" is used
+# as a synonym for any treatment (receptor, heat, etc), and "no-antibody" is
+# used as a synonym for the untreated conditions.
 
 # --------------------------------------------------------------------------------------
-# Configuration for each antibody or soluble receptor selection experiment.
+# Define the selections
 # --------------------------------------------------------------------------------------
 
-# `antibody_selections` is keyed by name of each selection experiment, which includes a
+# `assays` is keyed by assay (eg, "antibody_escape", "receptor_affinity", etc). Values are:
+#    - `title`: title used for selection in docs
+#    - `selections`: name of key used to define all selections for this assay
+#    - `averages`: name of key used to define averages across selections for this assay.
+#       Leave out this key if not taking averages.
+#    - `prob_escape_scale`: the scale used for the y-axis when plotting prob escape as
+#      a function of concentration. Typically symlog if all values close to zero, linear
+#      otherwise. Should be in the form of keyword arguments to `altair.Scale`.
+#    - `concentration_scale`: the scale used for the x-axis when plotting prob escape
+#      as a function of concentration. Is optional. Should be in the form of keyword
+#      arguments to `altair.Scale`.
+#    - `concentration_title`: the title used for the x-axis when plotting prob escape
+#      as a function of concentration. Is optional.
+#    - `scale_stat`: scale the statistic being estimated for mutation effects by this
+#      number. Typically is 1 (no scaling) unless you want negative values to indicate a
+#      favorable effect (as for soluble receptor selections), in which case use -1.
+#    - `stat_name`: name assigned to statistic, eg, "escape" or "receptor affinity".
+
+assays:
+  antibody_escape:
+    title: Antibody/serum escape
+    selections: antibody_selections
+    averages: avg_antibody_escape
+    prob_escape_scale:
+      type: symlog
+      constant: 0.04
+    scale_stat: 1
+    stat_name: escape
+  receptor_affinity:
+    title: Receptor affinity
+    selections: receptor_selections
+    averages: avg_receptor_affinity
+    prob_escape_scale:
+      type: linear
+    concentration_scale:
+      type: linear
+    concentration_title: concentration of receptor
+    scale_stat: -1
+    stat_name: receptor affinity
+
+# --------------------------------------------------------------------------------------
+# Configuration for the selection experiments for each assay.
+# --------------------------------------------------------------------------------------
+
+# `<assay>_selections` is keyed by name of each selection experiment, which includes a
 # no-antibody control samples and one or more antibody samples. These should typically
 # be from the same library and run on same date. Selection experiments are recommended
 # to be named as <Library>-<date as YYMMDD>-<description (eg, antibody)>-<replicate>.
@@ -23,10 +69,6 @@
 # The `use_in_fit` option exists because you may decide that some samples are outside
 # the preferred neutralization range to include in the fit, so if `use_in_fit: false`
 # then functional scores are computed and plotted but it is not included in the fit.
-
-# Note that for soluble receptor affinity selections, you define selection experiments
-# exactly analogously to `antibody_selections` in `receptor_selections`, using `antibody`
-# as a synonym for the soluble receptor.
 
 # default prob_escape filters
 prob_escape_filters_default: &prob_escape_filters_default
@@ -60,8 +102,6 @@ polyclonal_params_default: &polyclonal_params_default
 escape_plot_kwargs_default: &escape_plot_kwargs_default
   addtl_slider_stats:
     times_seen: 3
-  addtl_tooltip_stats:
-    - sequential_site
   heatmap_max_at_least: 2
   heatmap_min_at_least: -2
   init_floor_at_zero: false
@@ -215,11 +255,11 @@ receptor_selections:
       use_in_fit: true
 
 # --------------------------------------------------------------------------------------
-# Configuration for averaging/plotting selections for same antibody or soluble receptor
+# Configuration for averaging/plotting selections for an assay
 # --------------------------------------------------------------------------------------
 
-# Average/plot escape values from different selections with the same antibody/serum using
-# `avg_antibody_escape`. Each key is the name of an antibody/serum that has the following values:
+# Average/plot escape values from different selections for an assay using `<assay>_escape`.
+# Each key is the name of the average being taken with the following values:
 #   - `selections`: list of antibody selections for which we average escape
 #   - `icXX`: for the plot showing fold-change in ICXX (eg, IC90), what is XX (eg, 90)
 #   - `escape_plot_kwargs`: keyword arguments for `PolyclonalAverage.mut_escape_plot`
@@ -227,16 +267,21 @@ receptor_selections:
 #   - `title`: title of plots
 #   - `legend`: legend added to plots
 
-# For soluble receptor experiments used to measure receptor affinity, do exactly the same
-# except under the key `avg_receptor_affinity` rather than `avg_antibody_escape`.
+avg_escape_plot_kwargs_default: &avg_escape_plot_kwargs_default
+  <<: *escape_plot_kwargs_default
+  addtl_slider_stats:
+    times_seen: 3
+    escape_std: 2
+  addtl_slider_stats_as_max: [escape_std]
+  avg_type: median
+  per_model_tooltip: true
 
 # Define defaults for each antibody/serum, used via the merge (<<) operator
 avg_antibody_escape_default: &avg_antibody_escape_default
   icXX: 90  # IC90
+  show_icXX_in_docs: false  # Do we link ICXX plots/CSVs in docs? Missing equates to false.
   escape_plot_kwargs:
-    <<: *escape_plot_kwargs_default
-    avg_type: median
-    per_model_tooltip: true
+    <<: *avg_escape_plot_kwargs_default
   plot_hide_stats: *plot_hide_stats_default
   legend: |
     Use the site zoom bar at the top to zoom in on specific sites. The line plot shows a summary statistic indicating a summary of the mutation effects at each site. The heat map shows effects for individual mutations, with parental amino-acid identities indicated by x and gray indicating non-measured mutations. Mouse over points for details.

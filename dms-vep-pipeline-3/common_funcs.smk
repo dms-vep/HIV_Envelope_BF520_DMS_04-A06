@@ -26,7 +26,7 @@ def format_altair_html_chart_params(wc):
         title = avg_func_effect_shifts[comparison]["title"]
         legend = avg_func_effect_shifts[comparison]["legend"]
     elif m := re.fullmatch(
-        "(?P<assay>antibody_escape|receptor_affinity)/"
+        f"(?P<assay>{'|'.join(assays)})/"
         + "averages/(?P<antibody>.+)_mut_(?:effect|icXX)",
         chart,
     ):
@@ -34,6 +34,9 @@ def format_altair_html_chart_params(wc):
         antibody = m.group("antibody")
         title = avg_assay_config[assay][antibody]["title"]
         legend = avg_assay_config[assay][antibody]["legend"]
+    elif m != re.fullmatch("summaries/summary_(?:overlaid|faceted)", chart):
+        title = summary_config["title"]
+        legend = summary_config["legend"]
     else:
         raise ValueError(f"could not get formatting params for {chart=}")
     return {"title": title, "legend": legend}

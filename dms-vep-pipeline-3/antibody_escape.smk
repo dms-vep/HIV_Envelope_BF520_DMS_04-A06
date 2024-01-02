@@ -1,10 +1,7 @@
-"""``snakemake`` rules for calculating antibody/sera escape or receptor affinity.
+"""``snakemake`` rules for escape from some agent in assays (eg, antibody escape).
 
-Note that this analyzes data for two assay types: 'antibody_escape' and
-'receptor_affinity', corresponding to escape from antibody / sera or escape
-from soluble receptor used to estimate affinity. The workflow is basically the
-same, so 'antibody' is used as a synonym in some of the definitions of the
-receptor affinity selections.
+Note that these rules can analyze arbitrary assays. Throughout the workflow, the term
+'antibody' is used as a synonym for the agent that is being used to select for escape.
 
 """
 
@@ -14,18 +11,14 @@ with open(config["antibody_escape_config"]) as f:
     antibody_escape_config = yaml.safe_load(f)
 
 # get configuration for any antibody escape or receptor affinity selections
-assays = ["antibody_escape", "receptor_affinity"]
+assays = antibody_escape_config["assays"]
+assert "func_effects" not in assays, "cannot have assay called 'func_effects'"
 assay_selections = {}
 avg_assay_config = {}
-for assay in assays:
-    if (sel_key := assay.split("_")[0] + "_selections") in antibody_escape_config:
-        assay_selections[assay] = antibody_escape_config[sel_key]
-    else:
-        assay_selections[assay] = {}
-    if f"avg_{assay}" in antibody_escape_config:
-        avg_assay_config[assay] = antibody_escape_config[f"avg_{assay}"]
-    else:
-        avg_assay_config[assay] = {}
+for assay, assay_d in assays.items():
+    assay_selections[assay] = antibody_escape_config[assay_d["selections"]]
+    if "averages" in assay_d:
+        avg_assay_config[assay] = antibody_escape_config[assay_d["averages"]]
 
 #  make sure all samples defined
 for sel_name, sel_d in itertools.chain.from_iterable(
@@ -36,7 +29,15 @@ for sel_name, sel_d in itertools.chain.from_iterable(
             raise ValueError(f"sample {s} for {selection_name} not in barcode_runs")
 
 # Names and values of files to add to docs
-assay_docs = {assay: collections.defaultdict(dict) for assay in assays}
+assay_docs = {
+    assay: {
+        "Final summary plots": collections.defaultdict(dict),
+        "Analysis notebooks": collections.defaultdict(dict),
+        "Data files": collections.defaultdict(dict),
+    }
+    for assay in assay_selections
+    if len(assay_selections[assay])
+}
 
 
 wildcard_constraints:
@@ -131,6 +132,7 @@ rule fit_escape:
                 "params": assay_selections[wc.assay][wc.selection],
                 "neut_standard_frac_csvs": list(input.neut_standard_fracs),
                 "prob_escape_csvs": list(input.prob_escapes),
+                "assay_config": assays[wc.assay],
             }
         ),
     conda:
@@ -153,14 +155,14 @@ rule fit_escape:
 for assay, sels in assay_selections.items():
     for sel in sels:
         for sample in sels[sel]["antibody_samples"]:
-            assay_docs[assay][
+            assay_docs[assay]["Data files"][
                 "Probability (fraction) escape for each variant in each "
                 + assay.replace("_", " ")
                 + " selection (CSVs)"
             ][f"{sel} {sample}"] = rules.prob_escape.output.prob_escape.format(
                 assay=assay, selection=sel, sample=sample
             )
-            assay_docs[assay][
+            assay_docs[assay]["Analysis notebooks"][
                 "Fits of polyclonal models to individual "
                 + assay.replace("_", " ")
                 + " selections"
@@ -201,6 +203,7 @@ rule avg_escape:
                 "params": avg_assay_config[wc.assay][wc.antibody],
                 "prob_escape_mean_csvs": list(input.prob_escape_means),
                 "pickles": list(input.pickles),
+                "assay_config": assays[wc.assay],
             }
         ),
     conda:
@@ -224,29 +227,42 @@ rule avg_escape:
 
 for assay in avg_assay_config:
     assay_str = assay.replace("_", " ")
-    for heading, fname in [
-        (f"Average selections for {assay_str}", rules.avg_escape.output.nb),
-        (f"{assay_str} CSVs", rules.avg_escape.output.effect_csv),
-        (f"{assay_str} ICXX CSVs", rules.avg_escape.output.icXX_csv),
+    for heading, sec, fname, is_icXX in [
+        (
+            f"Average selections for {assay_str}",
+            "Analysis notebooks",
+            rules.avg_escape.output.nb,
+            False,
+        ),
+        (f"{assay_str} CSVs", "Data files", rules.avg_escape.output.effect_csv, False),
+        (
+            f"{assay_str} ICXX CSVs",
+            "Data files",
+            rules.avg_escape.output.icXX_csv,
+            True,
+        ),
         (
             f"{assay_str} mutation effect plots",
+            "Final summary plots",
             "results/{assay}/averages/{antibody}_mut_effect.html",
+            False,
         ),
         (
             f"{assay_str} mutation ICXX plots",
+            "Final summary plots",
             "results/{assay}/averages/{antibody}_mut_icXX.html",
+            True,
         ),
     ]:
-        for antibody in avg_assay_config[assay]:
-            assay_docs[assay][heading][antibody] = fname.format(
-                assay=assay, antibody=antibody
-            )
+        for antibody, antibody_config in avg_assay_config[assay].items():
+            if (not is_icXX) or (
+                ("show_icXX_in_docs" in antibody_config)
+                and antibody_config["show_icXX_in_docs"]
+            ):
+                assay_docs[assay][sec][heading][antibody] = fname.format(
+                    assay=assay, antibody=antibody
+                )
 
 for assay, assay_doc in assay_docs.items():
     if assay_doc:
-        docs[
-            {
-                "antibody_escape": "Antibody/serum escape",
-                "receptor_affinity": "Receptor affinity",
-            }[assay]
-        ] = assay_doc
+        docs[assays[assay]["title"]] = assay_doc
