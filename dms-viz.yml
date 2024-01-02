@@ -1,0 +1,13 @@
+name: dms-vep-pipeline-3
+
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+
+dependencies:
+  - python=3.11
+  - snakefmt
+  - snakemake=7.30
+  - pip:
+    - configure-dms-viz

@@ -1,5 +1,37 @@
-# Configurations for determining effects of mutations on antibody/sera escape
+# Configurations for determining effects of mutations on assays such as antibody
+# escape, receptor affinity from soluble receptor neutralization, etc.
+# Note that in the configuration for individual selections, "antibody" is used
+# as a synonym for any treatment (receptor, heat, etc), and "no-antibody" is
+# used as a synonym for the untreated conditions.
 
+# --------------------------------------------------------------------------------------
+# Define the selections
+# --------------------------------------------------------------------------------------
+
+# `assays` is keyed by assay (eg, "antibody_escape", "receptor_affinity", etc). Values are:
+#    - `title`: title used for selection in docs
+#    - `selections`: name of key used to define all selections for this assay
+#    - `averages`: name of key used to define averages across selections for this assay.
+#       Leave out this key if not taking averages.
+#    - `prob_escape_scale`: the scale used for the y-axis when plotting prob escape as
+#      a function of concentration. Typically symlog if all values close to zero, linear
+#      otherwise. Should be in the form of keyword arguments to `altair.Scale`.
+#    - `scale_stat`: scale the statistic being estimated for mutation effects by this
+#      number. Typically is 1 (no scaling) unless you want negative values to indicate a
+#      favorable effect (as for soluble receptor selections), in which case use -1.
+#    - `stat_name`: name assigned to statistic, eg, "escape" or "receptor affinity".
+
+assays:
+  antibody_escape:
+    title: Antibody/serum escape
+    selections: antibody_selections
+    averages: avg_antibody_escape
+    prob_escape_scale:
+      type: symlog
+      constant: 0.04
+    scale_stat: 1
+    stat_name: escape
+    
 # --------------------------------------------------------------------------------------
 # Configuration for each antibody selection experiment.
 # --------------------------------------------------------------------------------------
@@ -223,7 +255,7 @@ antibody_selections:
         use_in_fit: true
       A-230223-rescue_5-04-A06-10.0-1:
         concentration: 10.0
-        use_in_fit: true
+        use_in_fit: false
       A-230223-rescue_5-04-A06-20.0-1:
         concentration: 20.0
         use_in_fit: false
@@ -275,6 +307,86 @@ antibody_selections:
       B-230413-rescue_7-04-A06-4.0-1:
         concentration: 4.0
         use_in_fit: true
+  A-231207-rescue_8-N6_LS-1:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: A-231207-rescue_8-no_antibody-1
+    antibody_samples:
+      A-231207-rescue_8-N6_LS-0.5-1:
+        concentration: 0.5
+        use_in_fit: false
+      A-231207-rescue_8-N6_LS-1.0-1:
+        concentration: 1.0
+        use_in_fit: true
+      A-231207-rescue_8-N6_LS-2.0-1:
+        concentration: 2.0
+        use_in_fit: true
+      A-231207-rescue_8-N6_LS-4.0-1:
+        concentration: 4.0
+        use_in_fit: true
+  A-231207-rescue_8-VRC07_523_LS-1:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: A-231207-rescue_8-no_antibody-1
+    antibody_samples:
+      A-231207-rescue_8-VRC07_523_LS-0.5-1:
+        concentration: 0.5
+        use_in_fit: false
+      A-231207-rescue_8-VRC07_523_LS-1.0-1:
+        concentration: 1.0
+        use_in_fit: true
+      A-231207-rescue_8-VRC07_523_LS-2.0-1:
+        concentration: 2.0
+        use_in_fit: true
+      A-231207-rescue_8-VRC07_523_LS-4.0-1:
+        concentration: 4.0
+        use_in_fit: true
+  B-231207-rescue_6-N6_LS-1:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: B-231207-rescue_6-no_antibody-1
+    antibody_samples:
+      B-231207-rescue_6-N6_LS-0.5-1:
+        concentration: 0.5
+        use_in_fit: false
+      B-231207-rescue_6-N6_LS-1.0-1:
+        concentration: 1.0
+        use_in_fit: true
+      B-231207-rescue_6-N6_LS-2.0-1:
+        concentration: 2.0
+        use_in_fit: true
+      B-231207-rescue_6-N6_LS-4.0-1:
+        concentration: 4.0
+        use_in_fit: true
+  B-231207-rescue_6-VRC07_523_LS-1:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: B-231207-rescue_6-no_antibody-1
+    antibody_samples:
+      B-231207-rescue_6-VRC07_523_LS-0.5-1:
+        concentration: 0.5
+        use_in_fit: false
+      B-231207-rescue_6-VRC07_523_LS-1.0-1:
+        concentration: 1.0
+        use_in_fit: true
+      B-231207-rescue_6-VRC07_523_LS-2.0-1:
+        concentration: 2.0
+        use_in_fit: true
+      B-231207-rescue_6-VRC07_523_LS-4.0-1:
+        concentration: 4.0
+        use_in_fit: true
 
 # --------------------------------------------------------------------------------------
 # Configuration for averaging and plotting selections for the same antibody
@@ -291,7 +403,7 @@ antibody_selections:
 
 # Define defaults for each antibody/serum, used via the merge (<<) operator
 avg_antibody_escape_default: &avg_antibody_escape_default
-  icXX: 90
+  icXX: 80
   escape_plot_kwargs:
     <<: *escape_plot_kwargs_default
     avg_type: median
@@ -335,6 +447,18 @@ avg_antibody_escape:
 #      - B-230306-rescue_5-04-A06-1
 #      - B-230306-rescue_5-04-A06-2
       - B-230413-rescue_7-04-A06-1
+  N6_LS:
+    <<: *avg_antibody_escape_default
+    title: Escape map for antibody N6_LS
+    selections:
+      - A-231207-rescue_8-N6_LS-1
+      - B-231207-rescue_6-N6_LS-1
+  VRC07_523_LS:
+    <<: *avg_antibody_escape_default
+    title: Escape map for antibody VRC07_523_LS
+    selections:
+      - A-231207-rescue_8-VRC07_523_LS-1
+      - B-231207-rescue_6-VRC07_523_LS-1
 
 # --------------------------------------------------------------------------------------
 # Configuration for coloring PDB structures with antibody selection data
@@ -347,8 +471,17 @@ antibody_escape_PDBs:
   1-18: '6UDJ.pdb'
   3BNC117: '5V8M.pdb'
   04-A06: '6UDJ.pdb'
+  N6_LS: '6UDJ.pdb'
+  VRC07_523_LS: '6UDJ.pdb'
 
 # Env chains in each PDB file
 env_chains_by_PDB:
   6UDJ.pdb: 'C F M G J P'
   5V8M.pdb: 'A F G B I J'
+
+chains_to_exclude:
+  1-18: 'A K Q B L R'
+  3BNC117: 'E I F J'
+  04-A06: 'A K Q B L R D N H E O I'
+  N6_LS: 'A K Q B L R D N H E O I'
+  VRC07_523_LS: 'A K Q B L R D N H E O I'

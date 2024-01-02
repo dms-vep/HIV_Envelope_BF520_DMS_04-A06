@@ -1,4 +1,4 @@
-site,wildtype,mutant,log2 fold change IC90 mean,log2 fold change IC90 median,n_models,times_seen,frac_models,A-220720-rescue_2-1-18-1,A-220720-rescue_2-1-18-2,B-221011-rescue_4-1-18-1
+site,wildtype,mutant,log2 fold change IC80 mean,log2 fold change IC80 median,n_models,times_seen,frac_models,A-220720-rescue_2-1-18-1,A-220720-rescue_2-1-18-2,B-221011-rescue_4-1-18-1
 1,M,I,-0.04111,-0.05251,3,6.667,1,-0.05719,-0.01362,-0.05251
 1,M,M,0,0,3,,1,0,0,0
 1,M,T,0.006973,0.006973,2,2,0.6667,0.006765,0.00718,
