@@ -387,6 +387,23 @@ antibody_selections:
       B-231207-rescue_6-VRC07_523_LS-4.0-1:
         concentration: 4.0
         use_in_fit: true
+  B-240105-rescue_7-3BNC117-1:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: B-240105-rescue_7-no_antibody-1
+    antibody_samples:
+      B-240105-rescue_7-3BNC117-1.0-1:
+        concentration: 1.0
+        use_in_fit: true
+      B-240105-rescue_7-3BNC117-3.0-1:
+        concentration: 3.0
+        use_in_fit: true
+      B-240105-rescue_7-3BNC117-9.0-1:
+        concentration: 9.0
+        use_in_fit: true
 
 # --------------------------------------------------------------------------------------
 # Configuration for averaging and plotting selections for the same antibody
@@ -439,6 +456,7 @@ avg_antibody_escape:
       - A-221017-rescue_4-3BNC117-1
 #      - B-220912-rescue_1-3BNC117-1
       - B-221011-rescue_4-3BNC117-1
+      - B-240105-rescue_7-3BNC117-1
   04-A06:
     <<: *avg_antibody_escape_default
     title: Escape map for antibody 04-A06

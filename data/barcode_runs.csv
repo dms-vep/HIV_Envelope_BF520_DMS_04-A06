@@ -153,3 +153,7 @@ B-231207-rescue_6-VRC07_523_LS-0.5-1,B,20231207,/shared/ngs/illumina/ceradfor/23
 B-231207-rescue_6-VRC07_523_LS-1.0-1,B,20231207,/shared/ngs/illumina/ceradfor/231214_VH00699_408_AACF3N2HV/Unaligned/Project_ceradfor/231212_18_S18_R1_001.fastq.gz,
 B-231207-rescue_6-VRC07_523_LS-2.0-1,B,20231207,/shared/ngs/illumina/ceradfor/231214_VH00699_408_AACF3N2HV/Unaligned/Project_ceradfor/231212_19_S19_R1_001.fastq.gz,
 B-231207-rescue_6-VRC07_523_LS-4.0-1,B,20231207,/shared/ngs/illumina/ceradfor/231214_VH00699_408_AACF3N2HV/Unaligned/Project_ceradfor/231212_20_S20_R1_001.fastq.gz,
+B-240105-rescue_7-no_antibody-1,B,20240105,/shared/ngs/illumina/ceradfor/240111_VH01189_219_AAFC7JCM5/Unaligned/Project_ceradfor/240110_01_S1_R1_001.fastq.gz,
+B-240105-rescue_7-3BNC117-1.0-1,B,20240105,/shared/ngs/illumina/ceradfor/240111_VH01189_219_AAFC7JCM5/Unaligned/Project_ceradfor/240110_02_S2_R1_001.fastq.gz,
+B-240105-rescue_7-3BNC117-3.0-1,B,20240105,/shared/ngs/illumina/ceradfor/240111_VH01189_219_AAFC7JCM5/Unaligned/Project_ceradfor/240110_03_S3_R1_001.fastq.gz,
+B-240105-rescue_7-3BNC117-9.0-1,B,20240105,/shared/ngs/illumina/ceradfor/240111_VH01189_219_AAFC7JCM5/Unaligned/Project_ceradfor/240110_04_S4_R1_001.fastq.gz,
