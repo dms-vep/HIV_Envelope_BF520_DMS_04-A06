@@ -107,7 +107,7 @@ plot_hide_stats_default: &plot_hide_stats_default
   functional effect:
     csv: results/func_effects/averages/TZM-bl_entry_func_effects.csv
     csv_col: effect
-    init: -3
+    init: -6
 
 # define the antibody selections
       
